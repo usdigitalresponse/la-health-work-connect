@@ -16,6 +16,7 @@ export default function FacilityIntake() {
           frameBorder="0"
           width="100%"
           height="2427"
+          onWheel={() => null}
         ></iframe>
         <style jsx>
           {`
