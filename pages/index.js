@@ -8,7 +8,6 @@ export default function Home() {
     <PageWrapper
       metaTitle="Louisiana Health Work Connect"
       contentTitle="Louisiana Health Work Connect"
-      contentSubtitle="Welcome"
     >
       <div className="container">
         <main>
