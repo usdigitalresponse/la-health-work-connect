@@ -11,10 +11,9 @@ export default function CandidateIntake() {
     >
       <>
         <iframe
-          class="airtable-embed airtable-dynamic-height"
+          className="airtable-embed airtable-dynamic-height"
           src="https://airtable.com/embed/shrSe8ynS4Q5WkNCP?backgroundColor=blue"
-          frameborder="0"
-          onmousewheel=""
+          frameBorder="0"
           width="100%"
           height="8680"
         ></iframe>

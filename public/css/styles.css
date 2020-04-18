@@ -279,7 +279,6 @@ th {
 
 /* Scss Document */
 #header {
-  background-image: url("/images/main-header-bg.png");
   background-position: top center;
   background-repeat: no-repeat;
   background-color: #0f2d40;
@@ -729,7 +728,6 @@ h6 {
 }
 
 #header {
-  background-image: url("/images/main-header-bg.png");
   background-position: top;
   background-repeat: no-repeat;
   background-color: #0f2d40;

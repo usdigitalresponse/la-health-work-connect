@@ -34,8 +34,9 @@ export default function PageWrapper({
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
         <link href="/css/styles.css" rel="stylesheet" type="text/css" />
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-        <script>
-          {`
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
             (function (w, d, s, l, i) {
               w[l] = w[l] || [];
               w[l].push({
@@ -50,11 +51,11 @@ export default function PageWrapper({
                 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
               f.parentNode.insertBefore(j, f);
             })(window, document, 'script', 'dataLayer', '${googleTagManagerId}');
-            `}
-        </script>
+            `,
+          }}
+        ></script>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="css/ie8-and-down.css" />
       </Head>
       <noscript>
         <iframe

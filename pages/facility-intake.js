@@ -13,8 +13,7 @@ export default function FacilityIntake() {
         <iframe
           className="airtable-embed airtable-dynamic-height"
           src="https://airtable.com/embed/shr2K9CGevKIAjE8X?backgroundColor=blue"
-          frameborder="0"
-          onmousewheel=""
+          frameBorder="0"
           width="100%"
           height="2427"
         ></iframe>
