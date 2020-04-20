@@ -137,6 +137,12 @@ export default function PageWrapper({
                           padding-bottom: 0;
                         }
 
+                        @media (max-width: 560px) {
+                          h1 {
+                            font-size: inherit;
+                          }
+                        }
+
                         h1,
                         h2 {
                           color: #fff;
