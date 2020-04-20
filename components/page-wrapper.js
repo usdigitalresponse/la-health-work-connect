@@ -129,7 +129,7 @@ export default function PageWrapper({
                 <div>
                   <div className="title">
                     <h1>{contentTitle}</h1>
-                    <h2>{contentSubtitle}</h2>
+                    {!!contentSubtitle ? <h2>{contentSubtitle}</h2> : null}
                     <style jsx>
                       {`
                         h1 {
