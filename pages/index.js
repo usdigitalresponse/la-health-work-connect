@@ -28,16 +28,6 @@ export default function Home() {
                 </p>
               </div>
             </Link>
-
-            <Link href="/facility-intake">
-              <div className="card">
-                <h3>Medical Facilities &rarr;</h3>
-                <p>
-                  Apply to receive information about the healthcare
-                  professionals applying to this program.
-                </p>
-              </div>
-            </Link>
           </div>
 
           <div className="faq">
@@ -178,7 +168,6 @@ export default function Home() {
 
           .card {
             margin: 1rem;
-            flex-basis: 45%;
             padding: 1.5rem;
             text-align: left;
             color: inherit;
