@@ -23,7 +23,7 @@ export default function Home() {
               <div className="card">
                 <h3>Healthcare Workers &rarr;</h3>
                 <p>
-                  Apply to be considered for employeement at a healthcare facility in need.
+                  Apply to be considered for employment at a healthcare facility in need.
                 </p>
               </div>
             </Link>
@@ -51,7 +51,7 @@ export default function Home() {
 
                 <h4>I’m an interested healthcare worker.  How do I participate?</h4>
                 <p>
-                  Please fill in <Link href="/candidate-intake">this form</Link> to submit your information.
+                  Please fill in <Link href="/candidate-intake"><a>this form</a></Link> to submit your information.
                 </p>
               </div>
               <div className="col">
