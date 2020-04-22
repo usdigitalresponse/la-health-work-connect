@@ -11,7 +11,7 @@ export default function Home() {
     >
       <div className="container">
         <main>
-          <h4> Connecting Furloughed Healthcare Workers with Healthcare Facilities in Need </h4>
+          <h2> Connecting Furloughed Healthcare Workers with Healthcare Facilities in Need </h2>
           <p>
             <strong> Louisiana Health Work Connect</strong> is an initiative organized by
             the State of Louisiana Department of Health in response to COVID-19 to help facilities
@@ -33,19 +33,21 @@ export default function Home() {
             <h4>FAQ </h4><br/>
 
             <h4>How does it work? </h4>
-            <p>
-              Participating healthcare facilities will directly reach out to
-              participating relevant Louisiana Health Work Connect candidates
-              to determine whether they are a good fit for their needs.
-            </p>
+            <ol>
+              <li>Interested health care workers submit their information and qualifications. </li>
+              <li>Participating healthcare facilities regularly update the Louisiana Department of Health
+                (LDH) on their staffing needs. </li>
+              <li>LDH provides a list of candidates to facilities tailored to their staffing needs. </li>
+              <li>A participating facility then contacts a health care worker to begin the hiring process. </li>
+            </ol>
 
             <div className="grid">
               <div className="col">
-                <h4>HEALTHCARE WORKERS </h4>
+                <h4>HEALTHCARE WORKERS </h4><br/>
 
                 <h4>What workers can participate? </h4>
                 <p>
-                  Licensed or retired furloughed and out of work healthcare workers willing
+                  Licensed or retired, furloughed, and out-of-work healthcare workers willing
                   to work in Louisiana can submit their information to be considered for employment.
                 </p>
 
@@ -53,29 +55,71 @@ export default function Home() {
                 <p>
                   Please fill in <Link href="/candidate-intake"><a>this form</a></Link> to submit your information.
                 </p>
+
+                <h4>I don’t live in Louisiana but want to help. Can I participate?</h4>
+                <p>
+                  Yes. We hope to find jobs for our furloughed neighbors so we will be prioritizing filling open
+                  positions with qualified Louisiana residents. However, if we aren’t able to fill a critical
+                  hospital need with in-state providers, we will be expanding the reach beyond state lines.
+                </p>
+
+                <h4>Do I need to have an active license?</h4>
+                <p>
+                  No. Facilities are prioritizing workers who can begin immediately, but will also consider
+                  recently retired individuals who are in good standing with their respective licensing board.
+                </p>
+
+                <h4>How much will I get paid? Do I have to travel?</h4>
+                <p>
+                  The specific conditions of your employment, like pay and location, will be negotiated between
+                  you and the individual facilities. Before being hired, you will have an opportunity to discuss
+                  details like this with your potential future employer.
+                </p>
+
+                <h4>I’m not looking for a job, but I want to help. What should I do? </h4>
+                <p>
+                  Please sign up to be a volunteer through the Louisiana <a href="https://www.lava.dhh.louisiana.gov/">
+                  Volunteers in Action registry</a>. Medical and non-medical volunteers 18 years of age and older are welcome.
+                </p>
               </div>
               <div className="col">
-                <h4>HEALTHCARE FACILITIES </h4>
+                <h4>HEALTHCARE FACILITIES </h4><br/>
 
                 <h4>What facilities can participate? </h4>
                 <p>
-                  The program is currently being piloted in Baton Rouge, LA.
-                  Any qualified healthcare facility in the Baton Rouge area can participate
-                  in Louisiana Health Work Connect.
-                  <em>Coming soon:</em> any healthcare facility in the state of Louisiana.
+                  The program is currently being piloted in Baton Rouge, LA. Any licensed nursing home
+                  or hospital (both Tier 1 and 2) in <a href="http://ldh.la.gov/assets/docs/OrgCharts/RegionMap.jpg">
+                  Louisiana Department of Health Region 2</a> (Baton Rouge area) can participate in Louisiana Health Work Connect.
+                  <br/><br/>
+                  <em>Coming soon:</em> any hospital or nursing home in the state of Louisiana.
                 </p>
 
                 <h4>I’m an interested Louisiana healthcare facility.  How do I participate?</h4>
                 <p>
-                    Please reach out to your Louisiana Department of Health representative
-                    and mention the Louisiana Health Work Connect program.
+                  In recognition of the pressure many facilities are facing, this program is being rolled out as
+                  quickly as possible. It will initially launch as a pilot in the DoH Region 2 (Baton Rouge area) for
+                  Tier 1 and Tier 2 hospitals, and nursing homes. Based on the lessons learned during the pilot, it
+                  will transition to a statewide program as rapidly as possible.
+                  <br/><br/>
+                  If you are a Human Resources representative with a hospital or nursing home in Region 2 and
+                  have not received information about this program, please first contact your internal LDH
+                  emergency management liaison. For all other inquiries, please use the <a href="/feedback">feedback form</a>.
+                </p>
+
+                <h4>How do I receive information about interested applicants?</h4>
+                <p>
+                  If you are a validated participating member of Louisiana Health Work Connect, a tailored
+                  spreadsheet of applicants will be emailed to the Human Resources representative designated
+                  on the intake form.
                 </p>
               </div>
             </div>
             <br/>
-            <p>If you have any additional questions or feedback, let us know at <a href="mailto:replaceme!!!@example.com">replaceme!!!@example.com</a>. </p>
+            <p>If you have any additional questions or feedback, let us know at this <a href="/feedback">feedback form</a>. </p>
             
-            <p>For press inquiries, email <a href="mailto:iAmAFakePressOffice@example.com">iAmAFakePressOffice@example.com</a>.</p>
+            <p>For press inquiries, email
+              <a href="mailto:kelly.zimmerman@la.gov?subject=Louisiana Health Work Connect" target="_blank"> kelly.zimmerman@la.gov</a>.
+            </p>
           </div>
 
 
@@ -84,7 +128,7 @@ export default function Home() {
         <style jsx>{`
           .container {
             min-height: 50vh;
-            max-width: 800px;
+            max-width: 900px;
             padding: 0 1.5rem;
             display: flex;
             flex-direction: column;
@@ -143,10 +187,10 @@ export default function Home() {
 
           .col {
             flex: 1;
-            margin-right: 1rem;
+            margin-right: 1.5rem;
           }
 
-          h4 {
+          h2,h4 {
             border-bottom: none;
           }
 
