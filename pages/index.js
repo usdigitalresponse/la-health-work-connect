@@ -19,13 +19,13 @@ export default function Home() {
             who are otherwise out of work.
           </p>
           <div className="grid">
-            <Link href="/candidate-intake">
-              <div className="card">
+            <Link href="/candidate-intake?source=Landing%20Page">
+              <a className="card">
                 <h4>Healthcare Workers &rarr;</h4>
                 <p>
                   Apply to be considered for employment at a healthcare facility in need.
                 </p>
-              </div>
+              </a>
             </Link>
           </div>
 
@@ -53,7 +53,7 @@ export default function Home() {
 
                 <h4>I’m an interested healthcare worker.  How do I participate?</h4>
                 <p>
-                  Please fill in <Link href="/candidate-intake"><a>this form</a></Link> to submit your information.
+                  Please fill in <Link href="/candidate-intake?source=FAQ"><a>this form</a></Link> to submit your information.
                 </p>
 
                 <h4>I don’t live in Louisiana but want to help. Can I participate?</h4>
