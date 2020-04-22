@@ -126,26 +126,7 @@ export default function PageWrapper({
             <div className="wrapper">
               <div>
                 <div>
-                  <div className="title">
-                    <h1>{contentTitle}</h1>
-                    <style jsx>
-                      {`
-                        h1 {
-                          color: #fff;
-                          text-align: center;
-                          text-decoration: none;
-                          border: none;
-                          margin-bottom: 0;
-                        }
-
-                        @media (max-width: 600px) {
-                          h1 {
-                            font-size: 20px;
-                          }
-                        }
-                      `}
-                    </style>
-                  </div>
+                  <div className="title">{contentTitle}</div>
                 </div>
               </div>
             </div>

@@ -43,10 +43,10 @@ export default function Home() {
 
           <div className="grid">
             <Link href="/candidate-intake?source=Louisiana%20Health%20Work%20Connect%20Website">
-              <div className="card">
+              <a className="card">
                 <h2>Healthcare Workers &rarr;</h2>
                 <p>Apply to a healthcare facility in need in under 5 minutes</p>
-              </div>
+              </a>
             </Link>
           </div>
 
