@@ -11,7 +11,7 @@ export default function Home() {
     >
       <div className="container">
         <main>
-          <h2> Connecting Furloughed Healthcare Workers with Healthcare Facilities in Need. </h2>
+          <h2> Connecting Furloughed Healthcare Workers with Healthcare Facilities in Need </h2>
           <p className="description">
             <strong> Louisiana Health Work Connect</strong> is an initiative organized by
             the State of Louisiana Department of Health in response to COVID-19 to help facilities

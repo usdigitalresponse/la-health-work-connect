@@ -143,6 +143,12 @@ export default function PageWrapper({
                           }
                         }
 
+                        @media (max-width: 460px) {
+                          h1 {
+                            font-size: 24px;
+                          }
+                        }
+
                         h1,
                         h2 {
                           color: #fff;
