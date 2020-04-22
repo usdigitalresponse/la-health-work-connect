@@ -42,7 +42,7 @@ export default function Home() {
           </div>
 
           <div className="grid">
-            <Link href="/candidate-intake">
+            <Link href="/candidate-intake?source=Landing%20Page">
               <div className="card">
                 <h2>Get Involved &rarr;</h2>
                 <p>Apply to a healthcare facility in need.</p>
@@ -70,7 +70,7 @@ export default function Home() {
                   </h5>
                   <p>
                     Please fill in{" "}
-                    <Link href="/candidate-intake">
+                    <Link href="/candidate-intake?souce=FAQ">
                       <a>this form</a>
                     </Link>{" "}
                     to submit your information.
