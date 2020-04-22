@@ -317,6 +317,24 @@ export default function Home() {
           .faq {
             margin-top: 36px;
           }
+
+          ol {
+            list-style: none;
+            counter-reset: li;
+          }
+
+          li::before {
+            content: counter(li) ".";
+            color: #179ca3;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+            font-weight: bold;
+          }
+
+          li {
+            counter-increment: li;
+          }
         `}</style>
 
         <style jsx global>{`
@@ -324,9 +342,6 @@ export default function Home() {
           body {
             padding: 0;
             margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-              Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-              sans-serif;
           }
 
           * {

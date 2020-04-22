@@ -9,7 +9,6 @@ export default function PageWrapper({
   searchKeywords = "health, louisiana, LDH",
   googleTagManagerId = "GTM-PHQ8XH2",
   contentTitle,
-  contentSubtitle,
   children,
 }) {
   return (
@@ -129,32 +128,19 @@ export default function PageWrapper({
                 <div>
                   <div className="title">
                     <h1>{contentTitle}</h1>
-                    {!!contentSubtitle ? <h2>{contentSubtitle}</h2> : null}
                     <style jsx>
                       {`
-                        h1,
-                        h2 {
+                        h1 {
                           color: #fff;
                           text-align: center;
                           text-decoration: none;
                           border: none;
-                        }
-
-                        h1 {
                           margin-bottom: 0;
-                        }
-
-                        h2 {
-                          margin-top: 0;
                         }
 
                         @media (max-width: 600px) {
                           h1 {
                             font-size: 20px;
-                          }
-
-                          h2 {
-                            display: none;
                           }
                         }
                       `}
