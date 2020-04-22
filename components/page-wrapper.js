@@ -100,9 +100,9 @@ export default function PageWrapper({
                 <div className="rt-content">
                   <div className="wrapper">
                     <div className="sec-bar pull-right">
-                      <div className="sec-title">Interim Secretary</div>
+                      <div className="sec-title">Secretary</div>
                       <div className="sec-name">
-                        <span>Stephen R. Russo</span>, JD
+                        <span>Dr. Courtney N. Phillips</span>
                       </div>
                     </div>
                   </div>
@@ -132,30 +132,30 @@ export default function PageWrapper({
                     {!!contentSubtitle ? <h2>{contentSubtitle}</h2> : null}
                     <style jsx>
                       {`
-                        h1 {
-                          margin-bottom: 0;
-                          padding-bottom: 0;
-                        }
-
-                        @media (max-width: 560px) {
-                          h1 {
-                            font-size: inherit;
-                          }
-                        }
-
-                        @media (max-width: 460px) {
-                          h1 {
-                            font-size: 24px;
-                          }
-                        }
-
                         h1,
                         h2 {
                           color: #fff;
                           text-align: center;
-                          text-transform: none;
                           text-decoration: none;
                           border: none;
+                        }
+
+                        h1 {
+                          margin-bottom: 0;
+                        }
+
+                        h2 {
+                          margin-top: 0;
+                        }
+
+                        @media (max-width: 600px) {
+                          h1 {
+                            font-size: 20px;
+                          }
+
+                          h2 {
+                            display: none;
+                          }
                         }
                       `}
                     </style>
