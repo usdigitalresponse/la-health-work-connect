@@ -7,7 +7,6 @@ export default function Feedback() {
     <FormWrapper
       metaTitle="Louisiana Health Work Connect | Feedback"
       contentTitle="Louisiana Health Work Connect"
-      contentSubtitle="Feedback"
     >
       <>
         <iframe
