@@ -11,8 +11,8 @@ export default function Home() {
     >
       <div className="container">
         <main>
-          <h2> Connecting Furloughed Healthcare Workers with Healthcare Facilities in Need </h2>
-          <p className="description">
+          <h4> Connecting Furloughed Healthcare Workers with Healthcare Facilities in Need </h4>
+          <p>
             <strong> Louisiana Health Work Connect</strong> is an initiative organized by
             the State of Louisiana Department of Health in response to COVID-19 to help facilities
             with acute healthcare staffing shortages fill those vacancies with qualified candidates
@@ -21,7 +21,7 @@ export default function Home() {
           <div className="grid">
             <Link href="/candidate-intake">
               <div className="card">
-                <h3>Healthcare Workers &rarr;</h3>
+                <h4>Healthcare Workers &rarr;</h4>
                 <p>
                   Apply to be considered for employment at a healthcare facility in need.
                 </p>
@@ -30,7 +30,7 @@ export default function Home() {
           </div>
 
           <div className="faq">
-            <h3>FAQ </h3>
+            <h4>FAQ </h4><br/>
 
             <h4>How does it work? </h4>
             <p>
@@ -41,7 +41,7 @@ export default function Home() {
 
             <div className="grid">
               <div className="col">
-                <h3>HEALTHCARE WORKERS </h3>
+                <h4>HEALTHCARE WORKERS </h4>
 
                 <h4>What workers can participate? </h4>
                 <p>
@@ -55,7 +55,7 @@ export default function Home() {
                 </p>
               </div>
               <div className="col">
-                <h3>HEALTHCARE FACILITIES </h3>
+                <h4>HEALTHCARE FACILITIES </h4>
 
                 <h4>What facilities can participate? </h4>
                 <p>
@@ -84,7 +84,7 @@ export default function Home() {
         <style jsx>{`
           .container {
             min-height: 50vh;
-            max-width: 900px;
+            max-width: 800px;
             padding: 0 1.5rem;
             display: flex;
             flex-direction: column;
@@ -124,29 +124,6 @@ export default function Home() {
             text-decoration: none;
           }
 
-          .title a {
-            color: #0070f3;
-            text-decoration: none;
-          }
-
-          .title a:hover,
-          .title a:focus,
-          .title a:active {
-            text-decoration: underline;
-          }
-
-          .title {
-            margin: 0;
-            line-height: 1.15;
-            font-size: 4rem;
-            text-align: center;
-          }
-
-          .description {
-            line-height: 1.5;
-            font-size: 1.5rem;
-          }
-
           code {
             background: #fafafa;
             border-radius: 5px;
@@ -169,16 +146,7 @@ export default function Home() {
             margin-right: 1rem;
           }
 
-          .faq h3 {
-            margin-top: 1.5rem;
-          }
-
-          .faq h4 {
-            border-bottom: none;
-            margin-top: 1rem;
-          }
-
-          h2 {
+          h4 {
             border-bottom: none;
           }
 
@@ -201,14 +169,12 @@ export default function Home() {
             border-color: #0070f3;
           }
 
-          .card h3 {
-            margin: 0 0 1rem 0;
-            font-size: 1.5rem;
+          .card h4 {
+            margin: 0;
           }
 
           .card p {
             margin: 0;
-            font-size: 1.25rem;
             line-height: 1.5;
           }
 
