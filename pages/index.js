@@ -23,7 +23,7 @@ export default function Home() {
             <h4>How does it work? </h4>
             <ol>
               <li>
-                Interested health care workers submit their information and
+                Interested healthcare workers submit their information and
                 qualifications.{" "}
               </li>
               <li>
@@ -35,17 +35,17 @@ export default function Home() {
                 their staffing needs.{" "}
               </li>
               <li>
-                A participating facility then contacts a health care worker to
+                A participating facility then contacts a healthcare worker to
                 begin the hiring process.{" "}
               </li>
             </ol>
           </div>
 
           <div className="grid">
-            <Link href="/candidate-intake?source=Landing%20Page">
+            <Link href="/candidate-intake?source=Louisiana%20Health%20Work%20Connect%20Website">
               <div className="card">
-                <h2>Get Involved &rarr;</h2>
-                <p>Apply to a healthcare facility in need.</p>
+                <h2>Healthcare Workers &rarr;</h2>
+                <p>Apply to a healthcare facility in need in under 5 minutes</p>
               </div>
             </Link>
           </div>
@@ -55,7 +55,7 @@ export default function Home() {
 
             <div className="grid">
               <div className="col">
-                <h4>HEALTHCARE WORKERS </h4>
+                <h4>HEALTHCARE WORKERS</h4>
 
                 <div>
                   <h5>What workers can participate? </h5>

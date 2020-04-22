@@ -12,7 +12,6 @@ export default function CandidateIntake() {
     <FormWrapper
       metaTitle="Louisiana Health Work Connect | Candidate Intake"
       contentTitle="Louisiana Health Work Connect"
-      contentSubtitle="Candidate Intake"
     >
       <>
         <iframe
@@ -20,7 +19,7 @@ export default function CandidateIntake() {
           src={embedLink}
           frameBorder="0"
           width="100%"
-          height="7235"
+          height="7000"
           onWheel={() => null}
         ></iframe>
         <style jsx>
