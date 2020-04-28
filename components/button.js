@@ -18,12 +18,12 @@ export default function Button({ children, href, style = {} }) {
             font-size: 18px;
             text-align: center;
             padding: 8px 18px;
-            opacity: 0.85;
+            opacity: 1;
             transition: opacity 0.24s ease-out;
           }
 
           a:hover {
-            opacity: 1;
+            opacity: 0.85;
             color: #fff;
           }
         `}
