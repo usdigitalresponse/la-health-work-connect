@@ -1,36 +1,20 @@
 // pages/candidate-intake.js
 
-import FormWrapper from "../components/form-wrapper";
-import { useRouter } from "next/router";
+import { CANDIDATE_FORM } from "../utils/constants";
 
-export default function CandidateIntake() {
-  const router = useRouter();
-  const { source } = router.query;
-  const prefillParam = source != undefined ? `&prefill_Source=${source}` : "";
-  const embedLink = `https://airtable.com/embed/shrSe8ynS4Q5WkNCP?backgroundColor=blue${prefillParam}`;
+export default function () {
   return (
-    <FormWrapper
-      metaTitle="Louisiana Health Work Connect | Candidate Intake"
-      contentTitle="Louisiana Health Work Connect"
-    >
-      <>
-        <iframe
-          className="airtable-embed airtable-dynamic-height"
-          src={embedLink}
-          frameBorder="0"
-          width="100%"
-          height="7000"
-          onWheel={() => null}
-        ></iframe>
-        <style jsx>
-          {`
-            iframe {
-              background: transparent;
-              border: 1px solid #ccc;
-            }
-          `}
-        </style>
-      </>
-    </FormWrapper>
+    <div>
+      <p>
+        Redirecting you to <a href={CANDIDATE_FORM}>{CANDIDATE_FORM}</a>
+      </p>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+          window.location.href = "${CANDIDATE_FORM}" + window.location.search;
+        `,
+        }}
+      ></script>
+    </div>
   );
 }

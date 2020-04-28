@@ -1,353 +1,506 @@
 // pages/index.js
 
+import { CANDIDATE_FORM, FEEDBACK_FORM } from "../utils/constants";
 import PageWrapper from "../components/page-wrapper";
-import Link from "next/link";
+import HeaderHero from "../components/header-hero";
+import Button from "../components/button";
+import { useState } from "react";
 
+// Content ---------------------------------------------------------------------
+const HERO =
+  "Louisiana Health Work Connect is an initiative organized by the State of Louisiana Department of Health in response to COVID-19 to help facilities with acute healthcare staffing shortages fill those vacancies with qualified candidates who are otherwise out of work.";
+
+const HOW_IT_WORKS = [
+  "Interested healthcare workers submit their information and qualifications.",
+  "Participating healthcare facilities regularly update the Louisiana Department of Health (LDH) on their staffing needs.",
+  "LDH provides a list of candidates to facilities tailored to their staffing needs.",
+  "A participating facility then contacts a healthcare worker to begin the hiring process.",
+];
+
+const CANDIDATE_FAQ = [
+  {
+    question: "What workers can participate?",
+    answer:
+      "Licensed or retired, furloughed, and out-of-work healthcare workers willing to work in Louisiana can submit their information to be considered for employment.",
+  },
+  {
+    question: "I’m an interested healthcare worker. How do I participate?",
+    answer: (
+      <span>
+        Please fill in{" "}
+        <a href={`${CANDIDATE_FORM}?prefill_Source=FAQ`}>this form</a> to submit
+        your information.
+      </span>
+    ),
+  },
+  {
+    question: "I don’t live in Louisiana but want to help. Can I participate?",
+    answer:
+      "Yes. We hope to find jobs for our furloughed neighbors so we will be prioritizing filling open positions with qualified Louisiana residents. However, if we aren’t able to fill a critical hospital need with in-state providers, we will be expanding the reach beyond state lines.",
+  },
+  {
+    question: "Do I need to have an active license?",
+    answer:
+      "No. Facilities are prioritizing workers who can begin immediately, but will also consider recently retired individuals who are in good standing with their respective licensing board.",
+  },
+  {
+    question: "How much will I get paid? Do I have to travel?",
+    answer:
+      "The specific conditions of your employment, like pay and location, will be negotiated between you and the individual facilities. Before being hired, you will have an opportunity to discuss details like this with your potential future employer.",
+  },
+  {
+    question:
+      "I’m not looking for a job, but I want to help. What should I do?",
+    answer: (
+      <span>
+        Please sign up to be a volunteer through the Louisiana{" "}
+        <a href="https://www.lava.dhh.louisiana.gov">
+          Volunteers in Action registry
+        </a>
+        . Medical and non-medical volunteers 18 years of age and older are
+        welcome.
+      </span>
+    ),
+  },
+];
+
+const FACILITY_FAQ = [
+  {
+    question: "What facilities can participate?",
+    answer: (
+      <span>
+        The program is currently being piloted in Baton Rouge, LA. Any licensed
+        nursing home or hospital (both Tier 1 and 2) in{" "}
+        <a href="http://ldh.la.gov/assets/docs/OrgCharts/RegionMap.jpg">
+          Louisiana Department of Health Region 2
+        </a>{" "}
+        (Baton Rouge area) can participate in Louisiana Health Work Connect.
+        Coming soon: any hospital or nursing home in the state of Louisiana.
+      </span>
+    ),
+  },
+  {
+    question:
+      "I’m an interested Louisiana healthcare facility. How do I participate?",
+    answer: (
+      <span>
+        In recognition of the pressure many facilities are facing, this program
+        is being rolled out as quickly as possible. It will initially launch as
+        a pilot in the DoH Region 2 (Baton Rouge area) for Tier 1 and Tier 2
+        hospitals, and nursing homes. Based on the lessons learned during the
+        pilot, it will transition to a statewide program as rapidly as possible.
+        If you are a Human Resources representative with a hospital or nursing
+        home in Region 2 and have not received information about this program,
+        please first contact your internal LDH emergency preparedness liaison.
+        For all other inquiries, please use the{" "}
+        <a href={FEEDBACK_FORM}>feedback form</a>.
+      </span>
+    ),
+  },
+  {
+    question: "How do I receive information about interested applicants?",
+    answer:
+      "If you are a validated participating member of Louisiana Health Work Connect, a tailored spreadsheet of applicants will be emailed to the Human Resources representative designated on the intake form.",
+  },
+];
+
+const BUTTON_CONTENT = (
+  <>
+    Healthcare Workers -
+    <br />
+    Apply Now!
+  </>
+);
+
+// Helper Components -----------------------------------------------------------
+function HowNumber({ index, children }) {
+  return (
+    <div className="section">
+      <div className="num">
+        <h3>{index}</h3>
+      </div>
+      <p>{children}</p>
+      <style jsx>
+        {`
+          h3 {
+            font-size: 28px;
+            display: block;
+            width: 52px;
+            height: 52px;
+            background-color: #169ca3;
+            border-radius: 26px;
+            text-align: center;
+            color: #fff;
+            line-height: 52px;
+            margin: 0 auto 18px auto;
+          }
+
+          p {
+            max-width: 260px;
+            font-size: 1rem;
+          }
+
+          @media (max-width: 800px) {
+            .section {
+              display: flex;
+              align-items: center;
+              justify-content: flex-start;
+              margin-top: 20px;
+            }
+
+            h3 {
+              margin: none;
+            }
+
+            p {
+              margin-left: 24px;
+              max-width: unset;
+            }
+          }
+        `}
+      </style>
+    </div>
+  );
+}
+
+function Plus() {
+  return (
+    <span>
+      <style jsx>
+        {`
+          span {
+            margin-right: 12px;
+          }
+
+          span:before {
+            content: "＋";
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 20px;
+            height: 20px;
+            color: #169ca3;
+            border-radius: 50%;
+            border: 2px solid #169ca3;
+            font-size: 18px;
+            color: #169ca3;
+          }
+        `}
+      </style>
+    </span>
+  );
+}
+
+function Minus() {
+  return (
+    <span>
+      <style jsx>
+        {`
+          span {
+            margin-right: 12px;
+          }
+
+          span:before {
+            content: "−";
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 20px;
+            height: 20px;
+            color: #169ca3;
+            border-radius: 50%;
+            border: 2px solid #169ca3;
+            font-size: 18px;
+            color: #169ca3;
+          }
+        `}
+      </style>
+    </span>
+  );
+}
+
+function FaqItem({ question, answer }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggle = () => {
+    return setIsOpen(!isOpen);
+  };
+
+  return (
+    <div>
+      <h5 onClick={toggle}>
+        {isOpen ? <Minus /> : <Plus />}
+        <span>{question}</span>
+      </h5>
+      <p className={isOpen ? "open" : "closed"}>{answer}</p>
+      <style jsx>
+        {`
+          div {
+            margin-top: 20px;
+          }
+
+          h5 {
+            font-weight: 400;
+            cursor: pointer;
+            display: flex;
+          }
+
+          p {
+            margin-left: 32px;
+          }
+
+          p.open {
+            display: block;
+          }
+
+          p.closed {
+            display: none;
+          }
+        `}
+      </style>
+    </div>
+  );
+}
+
+function FaqList({ title, list }) {
+  return (
+    <>
+      <h4>{title}</h4>
+      {list.map((item, index) => (
+        <FaqItem key={index} {...item} />
+      ))}
+      <style jsx>
+        {`
+          h4 {
+            display: block;
+            text-align: center;
+            text-decoratin: none;
+            border: none;
+            font-size: 20px;
+          }
+        `}
+      </style>
+    </>
+  );
+}
+
+// Main ------------------------------------------------------------------------
 export default function Home() {
   return (
     <PageWrapper
       metaTitle="Louisiana Health Work Connect"
       contentTitle="Louisiana Health Work Connect"
     >
-      <div className="container">
+      <HeaderHero>
+        <h1>
+          Louisiana Health
+          <br />
+          Work Connect
+        </h1>
+        <p>{HERO}</p>
+        <div className="button-container">
+          <Button
+            href={`${CANDIDATE_FORM}?prefill_Source=Louisiana%20Health%20Work%20Connect%20Website`}
+          >
+            {BUTTON_CONTENT}
+          </Button>
+        </div>
+        <style jsx>
+          {`
+            h1,
+            p {
+              color: #fff;
+              text-decoration: none;
+              border: none;
+              margin: 0;
+              padding: 0;
+            }
+
+            p {
+              margin: 24px 0;
+            }
+
+            @media (max-width: 800px) {
+              h1 {
+                text-align: center;
+              }
+
+              .button-container {
+                display: flex;
+                justify-content: center;
+              }
+            }
+          `}
+        </style>
+      </HeaderHero>
+      <div>
         <main>
-          <h3>
-            <strong> Louisiana Health Work Connect</strong> is an initiative
-            organized by the State of Louisiana Department of Health in response
-            to COVID-19 to help facilities with acute healthcare staffing
-            shortages fill those vacancies with qualified candidates who are
-            otherwise out of work.
-          </h3>
+          <div className="lead">
+            <div className="container">
+              <div className="how">
+                <h2>How It Works</h2>
 
-          <div style={{ width: "100%", marginTop: 18 }}>
-            <h4>How does it work? </h4>
-            <ol>
-              <li>
-                Interested healthcare workers submit their information and
-                qualifications.{" "}
-              </li>
-              <li>
-                Participating healthcare facilities regularly update the
-                Louisiana Department of Health (LDH) on their staffing needs.{" "}
-              </li>
-              <li>
-                LDH provides a list of candidates to facilities tailored to
-                their staffing needs.{" "}
-              </li>
-              <li>
-                A participating facility then contacts a healthcare worker to
-                begin the hiring process.{" "}
-              </li>
-            </ol>
-          </div>
-
-          <div className="grid">
-            <Link href="/candidate-intake?source=Louisiana%20Health%20Work%20Connect%20Website">
-              <a className="card">
-                <h2>Healthcare Workers &rarr;</h2>
-                <p>Apply to a healthcare facility in need in under 5 minutes</p>
-              </a>
-            </Link>
-          </div>
-
-          <div className="faq">
-            <h2>Frequently Asked Questions</h2>
-
-            <div className="grid">
-              <div className="col">
-                <h4>HEALTHCARE WORKERS</h4>
-
-                <div>
-                  <h5>What workers can participate? </h5>
-                  <p>
-                    Licensed or retired, furloughed, and out-of-work healthcare
-                    workers willing to work in Louisiana can submit their
-                    information to be considered for employment.
-                  </p>
-
-                  <h5>
-                    I’m an interested healthcare worker. How do I participate?
-                  </h5>
-                  <p>
-                    Please fill in{" "}
-                    <Link href="/candidate-intake?souce=FAQ">
-                      <a>this form</a>
-                    </Link>{" "}
-                    to submit your information.
-                  </p>
-
-                  <h5>
-                    I don’t live in Louisiana but want to help. Can I
-                    participate?
-                  </h5>
-                  <p>
-                    Yes. We hope to find jobs for our furloughed neighbors so we
-                    will be prioritizing filling open positions with qualified
-                    Louisiana residents. However, if we aren’t able to fill a
-                    critical hospital need with in-state providers, we will be
-                    expanding the reach beyond state lines.
-                  </p>
-
-                  <h5>Do I need to have an active license?</h5>
-                  <p>
-                    No. Facilities are prioritizing workers who can begin
-                    immediately, but will also consider recently retired
-                    individuals who are in good standing with their respective
-                    licensing board.
-                  </p>
-
-                  <h5>How much will I get paid? Do I have to travel?</h5>
-                  <p>
-                    The specific conditions of your employment, like pay and
-                    location, will be negotiated between you and the individual
-                    facilities. Before being hired, you will have an opportunity
-                    to discuss details like this with your potential future
-                    employer.
-                  </p>
-
-                  <h5>
-                    I’m not looking for a job, but I want to help. What should I
-                    do?{" "}
-                  </h5>
-                  <p>
-                    Please sign up to be a volunteer through the Louisiana{" "}
-                    <a href="https://www.lava.dhh.louisiana.gov/">
-                      Volunteers in Action registry
-                    </a>
-                    . Medical and non-medical volunteers 18 years of age and
-                    older are welcome.
-                  </p>
+                <div className="list">
+                  {HOW_IT_WORKS.map((content, index) => (
+                    <HowNumber key={index} index={index + 1}>
+                      {content}
+                    </HowNumber>
+                  ))}
                 </div>
               </div>
-              <div className="col">
-                <h4>HEALTHCARE FACILITIES </h4>
 
-                <div>
-                  <h5>What facilities can participate? </h5>
-                  <p>
-                    The program is currently being piloted in Baton Rouge, LA.
-                    Any licensed nursing home or hospital (both Tier 1 and 2) in{" "}
-                    <a href="http://ldh.la.gov/assets/docs/OrgCharts/RegionMap.jpg">
-                      Louisiana Department of Health Region 2
-                    </a>{" "}
-                    (Baton Rouge area) can participate in Louisiana Health Work
-                    Connect.
-                    <br />
-                    <br />
-                    <em>Coming soon:</em> any hospital or nursing home in the
-                    state of Louisiana.
+              <div className="product-shot">
+                <img src="/images/laptop.png" alt="Product Form Image"></img>
+                <div className="cta">
+                  <p className="jumbo">
+                    Apply to a healthcare facility in need in under 5 minutes
                   </p>
-
-                  <h5>
-                    I’m an interested Louisiana healthcare facility. How do I
-                    participate?
-                  </h5>
-                  <p>
-                    In recognition of the pressure many facilities are facing,
-                    this program is being rolled out as quickly as possible. It
-                    will initially launch as a pilot in the DoH Region 2 (Baton
-                    Rouge area) for Tier 1 and Tier 2 hospitals, and nursing
-                    homes. Based on the lessons learned during the pilot, it
-                    will transition to a statewide program as rapidly as
-                    possible.
-                    <br />
-                    <br />
-                    If you are a Human Resources representative with a hospital
-                    or nursing home in Region 2 and have not received
-                    information about this program, please first contact your
-                    internal LDH emergency preparedness liaison. For all other
-                    inquiries, please use the{" "}
-                    <a href="/feedback">feedback form</a>.
-                  </p>
-
-                  <h5>
-                    How do I receive information about interested applicants?
-                  </h5>
-                  <p>
-                    If you are a validated participating member of Louisiana
-                    Health Work Connect, a tailored spreadsheet of applicants
-                    will be emailed to the Human Resources representative
-                    designated on the intake form.
-                  </p>
+                  <Button
+                    href={`${CANDIDATE_FORM}?prefill_Source=Louisiana%20Health%20Work%20Connect%20Website`}
+                    style={{ textAlign: "center" }}
+                  >
+                    {BUTTON_CONTENT}
+                  </Button>
                 </div>
               </div>
             </div>
-            <br />
-            <p>
-              If you have any additional questions or feedback, let us know at
-              this <a href="/feedback">feedback form</a>.{" "}
-            </p>
+            <style jsx>
+              {`
+                .lead {
+                  background-color: #efefef;
+                  padding: 36px 0 48px 0;
+                }
 
-            <p>
-              For press inquiries, email
-              <a
-                href="mailto:kelly.zimmerman@la.gov?subject=Louisiana Health Work Connect"
-                target="_blank"
-              >
-                {" "}
-                kelly.zimmerman@la.gov
-              </a>
-              .
-            </p>
+                .product-shot {
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  margin-top: 36px;
+                }
+
+                .list {
+                  display: flex;
+                  justify-content: space-between;
+                  margin-top: 36px;
+                }
+
+                .jumbo {
+                  font-size: 1.6rem;
+                  margin-bottom: 24px;
+                }
+
+                h2 {
+                  display: block;
+                  text-align: center;
+                  border: none;
+                }
+
+                img {
+                  margin-right: 48px;
+                }
+
+                img,
+                .cta {
+                  max-width: 350px;
+                }
+
+                @media (max-width: 800px) {
+                  .list {
+                    display: flex;
+                    flex-direction: column;
+                  }
+
+                  img {
+                    display: none;
+                  }
+
+                  a {
+                    margin: 0;
+                  }
+
+                  .jumbo {
+                    text-align: center;
+                    max-width: unset;
+                  }
+
+                  .cta {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                  }
+                }
+              `}
+            </style>
+          </div>
+
+          <div className="container">
+            <div className="faq">
+              <h2>Frequently Asked Questions</h2>
+
+              <div className="grid">
+                <div className="col">
+                  <FaqList title="Healthcare Workers" list={CANDIDATE_FAQ} />
+                </div>
+                <div className="col">
+                  <FaqList title="Healthcare Facilities" list={FACILITY_FAQ} />
+                </div>
+              </div>
+            </div>
+
+            <div className="contact">
+              <p>
+                If you have any additional questions or feedback, let us know at
+                this <a href={FEEDBACK_FORM}>feedback form</a>.{" "}
+              </p>
+
+              <p>
+                For press inquiries, email
+                <a
+                  href="mailto:kelly.zimmerman@la.gov?subject=Louisiana Health Work Connect"
+                  target="_blank"
+                >
+                  {" "}
+                  kelly.zimmerman@la.gov
+                </a>
+                .
+              </p>
+            </div>
+            <style jsx>
+              {`
+                h2 {
+                  display: block;
+                  text-align: center;
+                  border: none;
+                }
+
+                .grid {
+                  display: grid;
+                  grid-template-columns: 50% 50%;
+                  grid-column-gap: 60px;
+                }
+
+                @media (max-width: 800px) {
+                  .grid {
+                    display: block;
+                  }
+
+                  .col:nth-child(2) {
+                    margin-top: 24px;
+                  }
+                }
+
+                .contact {
+                  margin-top: 56px;
+                }
+
+                .contact p {
+                  text-align: center;
+                }
+              `}
+            </style>
           </div>
         </main>
-
-        <style jsx>{`
-          .container {
-            min-height: 50vh;
-            max-width: 900px;
-            padding: 0 1.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-          }
-
-          main {
-            padding: 5rem 0;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-          }
-
-          footer {
-            width: 100%;
-            height: 100px;
-            border-top: 1px solid #eaeaea;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-          }
-
-          footer img {
-            margin-left: 0.5rem;
-          }
-
-          footer a {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-          }
-
-          a {
-            text-decoration: none;
-          }
-
-          code {
-            background: #fafafa;
-            border-radius: 5px;
-            padding: 0.75rem;
-            font-size: 1.1rem;
-            font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-              DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-          }
-
-          .grid {
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 3rem;
-          }
-
-          .col {
-            flex: 1;
-            margin-right: 1.5rem;
-          }
-
-          h3 {
-            font-weight: normal;
-          }
-
-          h2,
-          h4 {
-            border-bottom: none;
-          }
-
-          h4 {
-            font-weight: bold;
-          }
-
-          h5 {
-            margin-top: 32px;
-          }
-
-          h5:first-child {
-            margin-top: 16px;
-          }
-
-          .card {
-            margin: 1rem;
-            padding: 1.5rem;
-            text-align: left;
-            color: inherit;
-            text-decoration: none;
-            border: 1px solid #eaeaea;
-            border-radius: 10px;
-            transition: color 0.15s ease, border-color 0.15s ease;
-            cursor: pointer;
-            text-align: center;
-          }
-
-          .card:hover,
-          .card:focus,
-          .card:active {
-            color: #0070f3;
-            border-color: #0070f3;
-          }
-
-          .card h4 {
-            margin: 0;
-          }
-
-          .card p {
-            margin: 0;
-            line-height: 1.5;
-          }
-
-          @media (max-width: 600px) {
-            .grid {
-              width: 100%;
-              flex-direction: column;
-            }
-          }
-
-          .faq {
-            margin-top: 36px;
-          }
-
-          ol {
-            list-style: none;
-            counter-reset: li;
-          }
-
-          li::before {
-            content: counter(li) ".";
-            color: #179ca3;
-            display: inline-block;
-            width: 1em;
-            margin-left: -1em;
-            font-weight: bold;
-          }
-
-          li {
-            counter-increment: li;
-          }
-        `}</style>
-
-        <style jsx global>{`
-          html,
-          body {
-            padding: 0;
-            margin: 0;
-          }
-
-          * {
-            box-sizing: border-box;
-          }
-        `}</style>
       </div>
     </PageWrapper>
   );
