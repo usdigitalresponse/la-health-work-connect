@@ -329,7 +329,7 @@ export default function Home() {
 
                 <div className="list">
                   {HOW_IT_WORKS.map((content, index) => (
-                    <HowNumber key={index} index={index}>
+                    <HowNumber key={index} index={index + 1}>
                       {content}
                     </HowNumber>
                   ))}
