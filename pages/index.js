@@ -1,5 +1,6 @@
 // pages/index.js
 
+import { CANDIDATE_FORM, FEEDBACK_FORM } from "../utils/constants";
 import PageWrapper from "../components/page-wrapper";
 import HeaderHero from "../components/header-hero";
 import Button from "../components/button";
@@ -24,7 +25,13 @@ const CANDIDATE_FAQ = [
   },
   {
     question: "I’m an interested healthcare worker. How do I participate?",
-    answer: <span>Please fill in this form to submit your information.</span>,
+    answer: (
+      <span>
+        Please fill in{" "}
+        <a href={`${CANDIDATE_FORM}?prefill_Source=FAQ`}>this form</a> to submit
+        your information.
+      </span>
+    ),
   },
   {
     question: "I don’t live in Louisiana but want to help. Can I participate?",
@@ -46,9 +53,12 @@ const CANDIDATE_FAQ = [
       "I’m not looking for a job, but I want to help. What should I do?",
     answer: (
       <span>
-        Please sign up to be a volunteer through the Louisiana Volunteers in
-        Action registry. Medical and non-medical volunteers 18 years of age and
-        older are welcome.
+        Please sign up to be a volunteer through the Louisiana{" "}
+        <a href="https://www.lava.dhh.louisiana.gov">
+          Volunteers in Action registry
+        </a>
+        . Medical and non-medical volunteers 18 years of age and older are
+        welcome.
       </span>
     ),
   },
@@ -60,10 +70,12 @@ const FACILITY_FAQ = [
     answer: (
       <span>
         The program is currently being piloted in Baton Rouge, LA. Any licensed
-        nursing home or hospital (both Tier 1 and 2) in Louisiana Department of
-        Health Region 2 (Baton Rouge area) can participate in Louisiana Health
-        Work Connect. Coming soon: any hospital or nursing home in the state of
-        Louisiana.
+        nursing home or hospital (both Tier 1 and 2) in{" "}
+        <a href="http://ldh.la.gov/assets/docs/OrgCharts/RegionMap.jpg">
+          Louisiana Department of Health Region 2
+        </a>{" "}
+        (Baton Rouge area) can participate in Louisiana Health Work Connect.
+        Coming soon: any hospital or nursing home in the state of Louisiana.
       </span>
     ),
   },
@@ -80,7 +92,8 @@ const FACILITY_FAQ = [
         If you are a Human Resources representative with a hospital or nursing
         home in Region 2 and have not received information about this program,
         please first contact your internal LDH emergency preparedness liaison.
-        For all other inquiries, please use the feedback form.
+        For all other inquiries, please use the{" "}
+        <a href={FEEDBACK_FORM}>feedback form</a>.
       </span>
     ),
   },
@@ -285,7 +298,9 @@ export default function Home() {
           Work Connect
         </h1>
         <p>{HERO}</p>
-        <Button href="/candidate-intake?source=Louisiana%20Health%20Work%20Connect%20Website">
+        <Button
+          href={`${CANDIDATE_FORM}?prefill_Source=Louisiana%20Health%20Work%20Connect%20Website`}
+        >
           {BUTTON_CONTENT}
         </Button>
         <style jsx>
@@ -328,7 +343,7 @@ export default function Home() {
                     Apply to a healthcare facility in need in under 5 minutes
                   </p>
                   <Button
-                    href="/candidate-intake?source=Louisiana%20Health%20Work%20Connect%20Website"
+                    href={`${CANDIDATE_FORM}?prefill_Source=Louisiana%20Health%20Work%20Connect%20Website`}
                     style={{ textAlign: "center" }}
                   >
                     {BUTTON_CONTENT}
@@ -423,7 +438,7 @@ export default function Home() {
             <div className="contact">
               <p>
                 If you have any additional questions or feedback, let us know at
-                this <a href="/feedback">feedback form</a>.{" "}
+                this <a href={FEEDBACK_FORM}>feedback form</a>.{" "}
               </p>
 
               <p>
