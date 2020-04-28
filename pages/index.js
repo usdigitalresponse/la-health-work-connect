@@ -325,7 +325,7 @@ export default function Home() {
           <div className="lead">
             <div className="container">
               <div className="how">
-                <h2>How does it work?</h2>
+                <h2>How It Works</h2>
 
                 <div className="list">
                   {HOW_IT_WORKS.map((content, index) => (
