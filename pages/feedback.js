@@ -11,7 +11,7 @@ export default function () {
       <script
         dangerouslySetInnerHTML={{
           __html: `
-          window.location.href = "${FEEDBACK_FORM}";
+          window.location.href = "${FEEDBACK_FORM}?" + window.location.search;
         `,
         }}
       ></script>

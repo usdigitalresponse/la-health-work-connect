@@ -11,7 +11,7 @@ export default function () {
       <script
         dangerouslySetInnerHTML={{
           __html: `
-          window.location.href = "${CANDIDATE_FORM}";
+          window.location.href = "${CANDIDATE_FORM}" + window.location.search;
         `,
         }}
       ></script>
