@@ -298,11 +298,13 @@ export default function Home() {
           Work Connect
         </h1>
         <p>{HERO}</p>
-        <Button
-          href={`${CANDIDATE_FORM}?prefill_Source=Louisiana%20Health%20Work%20Connect%20Website`}
-        >
-          {BUTTON_CONTENT}
-        </Button>
+        <div className="button-container">
+          <Button
+            href={`${CANDIDATE_FORM}?prefill_Source=Louisiana%20Health%20Work%20Connect%20Website`}
+          >
+            {BUTTON_CONTENT}
+          </Button>
+        </div>
         <style jsx>
           {`
             h1,
@@ -316,6 +318,17 @@ export default function Home() {
 
             p {
               margin: 24px 0;
+            }
+
+            @media (max-width: 800px) {
+              h1 {
+                text-align: center;
+              }
+
+              .button-container {
+                display: flex;
+                justify-content: center;
+              }
             }
           `}
         </style>
