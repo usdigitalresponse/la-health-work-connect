@@ -121,36 +121,6 @@ export default function PageWrapper({
             </div>
           </div>
         </div>
-        <div className="sub-header">
-          <div className="container">
-            <div className="wrapper">
-              <div>
-                <div>
-                  <div className="title">
-                    <h1>{contentTitle}</h1>
-                    <style jsx>
-                      {`
-                        h1 {
-                          color: #fff;
-                          text-align: center;
-                          text-decoration: none;
-                          border: none;
-                          margin-bottom: 0;
-                        }
-
-                        @media (max-width: 600px) {
-                          h1 {
-                            font-size: 20px;
-                          }
-                        }
-                      `}
-                    </style>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </header>
       <div className="content">{children}</div>
       <footer id="footer">

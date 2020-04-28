@@ -2,6 +2,7 @@
 
 import FormWrapper from "../components/form-wrapper";
 import { useRouter } from "next/router";
+import { isMobile } from "react-device-detect";
 
 export default function CandidateIntake() {
   const router = useRouter();
@@ -18,15 +19,16 @@ export default function CandidateIntake() {
           className="airtable-embed airtable-dynamic-height"
           src={embedLink}
           frameBorder="0"
-          width="100%"
-          height="7000"
+          height={isMobile ? 8000 : 7000}
           onWheel={() => null}
+          scrolling="no"
         ></iframe>
         <style jsx>
           {`
             iframe {
               background: transparent;
               border: 1px solid #ccc;
+              overflow: hidden;
             }
           `}
         </style>

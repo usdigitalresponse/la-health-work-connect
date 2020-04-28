@@ -13,15 +13,16 @@ export default function Feedback() {
           className="airtable-embed airtable-dynamic-height"
           src="https://airtable.com/embed/shr4yfSgyOk9PCZGK?backgroundColor=blue"
           frameBorder="0"
-          width="100%"
-          height="8680"
+          height="1000"
           onWheel={() => null}
+          scrolling="no"
         ></iframe>
         <style jsx>
           {`
             iframe {
               background: transparent;
               border: 1px solid #ccc;
+              overflow: hidden;
             }
           `}
         </style>
