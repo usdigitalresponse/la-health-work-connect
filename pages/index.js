@@ -69,13 +69,11 @@ const FACILITY_FAQ = [
     question: "What facilities can participate?",
     answer: (
       <span>
-        The program is currently being piloted in Baton Rouge, LA. Any licensed
-        nursing home or hospital (both Tier 1 and 2) in{" "}
+        The program is now open to any licensed nursing home or hospital (both Tier 1 and 2) in{" "}
         <a href="http://ldh.la.gov/assets/docs/OrgCharts/RegionMap.jpg">
-          Louisiana Department of Health Region 2
+          Louisiana Department of Health Regions
         </a>{" "}
-        (Baton Rouge area) can participate in Louisiana Health Work Connect.
-        Coming soon: any hospital or nursing home in the state of Louisiana.
+        can participate in Louisiana Health Work Connect.
       </span>
     ),
   },
@@ -85,12 +83,11 @@ const FACILITY_FAQ = [
     answer: (
       <span>
         In recognition of the pressure many facilities are facing, this program
-        is being rolled out as quickly as possible. It will initially launch as
+        is being rolled out as quickly as possible. LDH initially launched as
         a pilot in the DoH Region 2 (Baton Rouge area) for Tier 1 and Tier 2
-        hospitals, and nursing homes. Based on the lessons learned during the
-        pilot, it will transition to a statewide program as rapidly as possible.
+        hospitals, and nursing homes. As of April 29th, it will transition to a statewide program as rapidly as possible.
         If you are a Human Resources representative with a hospital or nursing
-        home in Region 2 and have not received information about this program,
+        home in any LDH region and have not received information about this program,
         please first contact your internal LDH emergency preparedness liaison.
         For all other inquiries, please use the{" "}
         <a href={FEEDBACK_FORM}>feedback form</a>.
