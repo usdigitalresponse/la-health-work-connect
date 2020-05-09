@@ -5,6 +5,8 @@ import PageWrapper from "../components/page-wrapper";
 import HeaderHero from "../components/header-hero";
 import Button from "../components/button";
 import { useState } from "react";
+import { useRouter } from 'next/router'
+// import withRouter from 'next/router'
 
 // Content ---------------------------------------------------------------------
 const HERO =
@@ -100,6 +102,17 @@ const FACILITY_FAQ = [
       "If you are a validated participating member of Louisiana Health Work Connect, a tailored spreadsheet of applicants will be emailed to the Human Resources representative designated on the intake form.",
   },
 ];
+
+const REFERRAL = "";
+if (typeof window !== 'undefined') {
+  const REFERRAL = typeof window === 'object'
+      ? ` ?prefill_Source= + {parse(location.search)}` // CSR
+      : ` ?prefill_Source= + {parseUrl(location.pathname).query}`; // SSR
+}
+else {
+  const REFERRAL = "?prefill_Source=Louisiana%20Health%20Work%20Connect%20Website";
+}
+
 
 const BUTTON_CONTENT = (
   <>
@@ -281,6 +294,7 @@ function FaqList({ title, list }) {
   );
 }
 
+// const what = withRouter.query;
 // Main ------------------------------------------------------------------------
 export default function Home() {
   return (
@@ -297,7 +311,7 @@ export default function Home() {
         <p>{HERO}</p>
         <div className="button-container">
           <Button
-            href={`${CANDIDATE_FORM}?prefill_Source=Louisiana%20Health%20Work%20Connect%20Website`}
+            href={`${CANDIDATE_FORM}${REFERRAL}`}
           >
             {BUTTON_CONTENT}
           </Button>
@@ -353,7 +367,7 @@ export default function Home() {
                     Apply to a healthcare facility in need in under 5 minutes
                   </p>
                   <Button
-                    href={`${CANDIDATE_FORM}?prefill_Source=Louisiana%20Health%20Work%20Connect%20Website`}
+                    href={`${CANDIDATE_FORM}${REFERRAL}`}
                     style={{ textAlign: "center" }}
                   >
                     {BUTTON_CONTENT}
