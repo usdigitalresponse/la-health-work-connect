@@ -1,6 +1,6 @@
 // pages/index.js
 
-import { CANDIDATE_FORM, FEEDBACK_FORM } from "../utils/constants";
+import { CANDIDATE_FORM, FEEDBACK_FORM, DEFAULT_REFERRAL} from "../utils/constants";
 import PageWrapper from "../components/page-wrapper";
 import HeaderHero from "../components/header-hero";
 import { useState } from "react";
@@ -287,9 +287,10 @@ function FaqList({ title, list }) {
 
 // Main ------------------------------------------------------------------------
 export default function Home() {
+  
   const REFERRAL = typeof window !== 'undefined' 
-    ? `?prefill_Source=${encodeURIComponent(new URLSearchParams(window.location.search).get("utm_source"))}` 
-    : "?prefill_Source=Louisiana%20Health%20Work%20Connect%20Website";
+    ? `?prefill_Source=${encodeURIComponent(new URLSearchParams(window.location.search).get("utm_source") || DEFAULT_REFERRAL)}` 
+    : `?prefill_Source=${DEFAULT_REFERRAL}`;
 
   return (
     <PageWrapper
