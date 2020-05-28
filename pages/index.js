@@ -471,14 +471,6 @@ export default function Home() {
                 </a>
                 .
               </p>
-              <p>
-                Hosted on
-                <a href="https://vercel.com/">
-                  {" "}
-                  Vercel
-                </a>
-                .
-              </p>
             </div>
             <style jsx>
               {`
