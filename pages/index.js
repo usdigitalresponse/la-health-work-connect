@@ -473,9 +473,7 @@ export default function Home() {
               </p>
               <p>
                 Hosted on
-                <a
-                  href="https://vercel.com/"
-                >
+                <a href="https://vercel.com/">
                   {" "}
                   Vercel
                 </a>
