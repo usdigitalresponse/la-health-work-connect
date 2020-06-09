@@ -5,8 +5,10 @@ import PageWrapper from "../components/page-wrapper";
 import HeaderHero from "../components/header-hero";
 import { useState } from "react";
 import dynamic from 'next/dynamic';
+// import Layout from "../components/layout"
 
 const Button = dynamic(() => import("../components/button"), { ssr: false });
+const Layout = dynamic(() => import("../components/layout"), { ssr: false });
 
 // Content ---------------------------------------------------------------------
 const HERO =
@@ -298,6 +300,7 @@ export default function Home() {
       contentTitle="Louisiana Health Work Connect"
     >
       <HeaderHero>
+        <Layout>
         <h1>
           Louisiana Health
           <br />
@@ -338,6 +341,7 @@ export default function Home() {
             }
           `}
         </style>
+      </Layout>
       </HeaderHero>
       <div>
         <main>
