@@ -2,8 +2,6 @@
 
 import Head from "next/head";
 import Page from "./page";
-import { LA_GOV_GA_TRACKING_ID, USDR_GA_TRACKING_ID, initGA } from '../utils/analytics';
-
 
 export default function PageWrapper({
   metaTitle = "Louisiana Health Work Connect",
@@ -52,11 +50,6 @@ export default function PageWrapper({
                 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
               f.parentNode.insertBefore(j, f);
             })(window, document, 'script', 'dataLayer', '${googleTagManagerId}');
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${LA_GOV_GA_TRACKING_ID}');
-            gtag('config', '${USDR_GA_TRACKING_ID}');
             `,
           }}
         ></script>
