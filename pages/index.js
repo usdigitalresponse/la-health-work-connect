@@ -472,10 +472,10 @@ export default function Home() {
                 .
               </p>
               <p>
-                Hosted on
+                Hosted on the
                 <a href="https://vercel.com/">
                   {" "}
-                  Vercel
+                  Vercel platform
                 </a>
                 .
               </p>
