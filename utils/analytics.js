@@ -31,3 +31,12 @@ export const logPageView = () => {
   ReactGA.pageview(window.location.href, [USDR_GA_TRACKER_NAME, LA_GOV_GA_TRACKER_NAME])
 }
 
+export const logClick = () => {
+  ReactGA.event({
+    category: 'Button',
+    action: 'Clicked through to form',
+    label: 'funnel through'
+  },
+  [USDR_GA_TRACKER_NAME, LA_GOV_GA_TRACKER_NAME]
+  );
+}
