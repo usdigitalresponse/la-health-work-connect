@@ -19,16 +19,17 @@ export const initGA = () => {
     initTracker(LA_GOV_GA_TRACKING_ID, LA_GOV_GA_TRACKER_NAME)
   ]
   ReactGA.initialize(trackers, {
-        debug: true,
+        debug: false,
         alwaysSendToDefaultTracker: false
       });
 }
 
 
-export const logPageView = () => {
-  console.log(`Logging pageview for ${window.location.href}`)
-  ReactGA.set({ page: window.location.href }, [USDR_GA_TRACKER_NAME, LA_GOV_GA_TRACKER_NAME])
-  ReactGA.pageview(window.location.href, [USDR_GA_TRACKER_NAME, LA_GOV_GA_TRACKER_NAME])
+export const logPageView = (page) => {
+  let pageLocation = page || window.location.href
+  console.log(`Logging pageview for ${pageLocation}`)
+  ReactGA.set({ page: pageLocation }, [USDR_GA_TRACKER_NAME, LA_GOV_GA_TRACKER_NAME])
+  ReactGA.pageview(pageLocation, [USDR_GA_TRACKER_NAME, LA_GOV_GA_TRACKER_NAME])
 }
 
 export const logClick = () => {

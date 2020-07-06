@@ -1,10 +1,11 @@
 // src/components/button.js
-import { logClick } from "../utils/analytics"
+import { logClick, logPageView } from "../utils/analytics"
+import { CANDIDATE_FORM } from "../utils/constants";
 
 export default function Button({ children, href, style = {} }) {
   return (
     <>
-    <a href={href} style={style} onClick={()=>{logClick()}}>
+    <a href={href} style={style} onClick={()=>{logClick(), logPageView(CANDIDATE_FORM)}}>
         {children}
       </a>
       <style jsx>
