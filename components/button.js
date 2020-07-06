@@ -1,9 +1,10 @@
 // src/components/button.js
+import { logClick } from "../utils/analytics"
 
 export default function Button({ children, href, style = {} }) {
   return (
     <>
-      <a href={href} style={style}>
+    <a href={href} style={style} onClick={()=>{logClick()}}>
         {children}
       </a>
       <style jsx>
