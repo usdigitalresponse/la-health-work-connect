@@ -467,11 +467,11 @@ export default function Home() {
               <p>
                 For press inquiries, email
                 <a
-                  href="mailto:kelly.zimmerman@la.gov?subject=Louisiana Health Work Connect"
+                  href="mailto:healthwork.connect@la.gov?subject=Louisiana Health Work Connect"
                   target="_blank"
                 >
                   {" "}
-                  kelly.zimmerman@la.gov
+                  healthwork.connect@la.gov
                 </a>
                 .
               </p>
