@@ -106,10 +106,10 @@ const FACILITY_FAQ = [
       "If you are a validated participating member of Louisiana Health Work Connect, a tailored spreadsheet of applicants will be emailed to the Human Resources representative designated on the intake form.",
   },
   {
-    question: "How do I find more nursing homes and hospitals?",
+    question: "Are there medical staffing vendors that can provide temporary providers to my facility?",
     answer: (
       <span>
-        If you have additional staffing needs not met by Louisiana Health Work Connect, these Staffing Agencies may be able to meet your needs. View additional staffing agencies {" "}
+        If you have additional staffing needs not met by Louisiana Health Work Connect, these staffing agencies may be able to meet your needs. View additional staffing agencies {" "}
         <a href="https://drive.google.com/file/d/1fuvzBIfNwvdDa22W2FPw6eguhZgbYuDd/view">
           here.
         </a>{" "}
