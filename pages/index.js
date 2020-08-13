@@ -5,12 +5,14 @@ import PageWrapper from "../components/page-wrapper";
 import HeaderHero from "../components/header-hero";
 import { useState } from "react";
 import dynamic from 'next/dynamic';
-// import Layout from "../components/layout"
 
 const Button = dynamic(() => import("../components/button"), { ssr: false });
 const Layout = dynamic(() => import("../components/layout"), { ssr: false });
 
 // Content ---------------------------------------------------------------------
+
+
+
 const HERO =
   "Louisiana Health Work Connect is an initiative organized by the State of Louisiana Department of Health in response to COVID-19 to help facilities with acute healthcare staffing shortages fill those vacancies with qualified candidates who are otherwise out of work.";
 
@@ -102,6 +104,17 @@ const FACILITY_FAQ = [
     question: "How do I receive information about interested applicants?",
     answer:
       "If you are a validated participating member of Louisiana Health Work Connect, a tailored spreadsheet of applicants will be emailed to the Human Resources representative designated on the intake form.",
+  },
+  {
+    question: "How do I find more nursing homes and hospitals?",
+    answer: (
+      <span>
+        If you have additional staffing needs not met by Louisiana Health Work Connect, these Staffing Agencies may be able to meet your needs. View additional staffing agencies {" "}
+        <a href="https://drive.google.com/file/d/1fuvzBIfNwvdDa22W2FPw6eguhZgbYuDd/view">
+          here.
+        </a>{" "}
+      </span>
+    ),
   },
 ];
 
