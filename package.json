@@ -8,7 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.20",
     "next": "9.3.5",
     "prettier": "^2.0.4",
     "prop-types": "^15.7.2",
